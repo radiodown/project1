@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbf5ef" />
+      <stop offset="50%" stop-color="#f3e4d8" />
+      <stop offset="100%" stop-color="#d9b7a4" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1040" cy="120" r="160" fill="#ffffff" opacity="0.32" />
+  <circle cx="180" cy="520" r="220" fill="#ffffff" opacity="0.22" />
+  <path
+    d="M130 180c66-46 139-69 221-69 159 0 232 81 324 152 70 54 149 95 280 95 53 0 103-7 150-21"
+    fill="none"
+    stroke="#7d5b52"
+    stroke-width="3"
+    opacity="0.38"
+  />
+  <text x="120" y="242" fill="#7d5b52" font-size="28" font-family="Georgia, serif" letter-spacing="10">
+    MOBILE WEDDING INVITATION
+  </text>
+  <text x="120" y="354" fill="#352620" font-size="88" font-family="Georgia, serif">
+    민준 &amp; 서연
+  </text>
+  <text x="120" y="430" fill="#6e4e45" font-size="34" font-family="Arial, sans-serif">
+    2026. 05. 16 SAT 14:30
+  </text>
+  <text x="120" y="484" fill="#6e4e45" font-size="28" font-family="Arial, sans-serif">
+    라포레 웨딩 2층 그레이스홀
+  </text>
+</svg>
+
