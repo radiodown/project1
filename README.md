@@ -2,6 +2,7 @@
 
 React, Vite, TypeScript, Tailwind CSS로 구성한 모바일 퍼스트 청첩장 템플릿입니다. 카카오 지도, 갤러리 확대 보기, YouTube 임베드, 연락 및 공유 기능을 포함합니다.
 
+
 ## 실행
 
 ```bash
