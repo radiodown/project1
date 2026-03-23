@@ -7,6 +7,30 @@ import {
 
 const STORAGE_KEY = "wedding-theme-preset";
 
+function readStoredPresetId() {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  try {
+    return window.localStorage.getItem(STORAGE_KEY);
+  } catch {
+    return null;
+  }
+}
+
+function persistPresetId(presetId: string) {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  try {
+    window.localStorage.setItem(STORAGE_KEY, presetId);
+  } catch {
+    // Ignore storage failures and keep the selected theme in memory only.
+  }
+}
+
 function readThemeFromSearchParams() {
   if (typeof window === "undefined") {
     return null;
@@ -26,7 +50,7 @@ function readInitialPresetId() {
     return defaultThemePresetId;
   }
 
-  return getThemePresetById(window.localStorage.getItem(STORAGE_KEY)).id;
+  return getThemePresetById(readStoredPresetId()).id;
 }
 
 function isThemeTesterEnabled() {
@@ -60,10 +84,7 @@ export function useThemePreset() {
 
   useEffect(() => {
     applyThemePreset(activePreset.id);
-
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem(STORAGE_KEY, activePreset.id);
-    }
+    persistPresetId(activePreset.id);
   }, [activePreset]);
 
   return {
@@ -74,4 +95,3 @@ export function useThemePreset() {
     presets: themePresets
   };
 }
-
