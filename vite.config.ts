@@ -2,12 +2,9 @@ import path from "node:path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1];
-const useRepositoryBase =
-  process.env.GITHUB_ACTIONS === "true" && Boolean(repositoryName);
-
 export default defineConfig({
-  base: useRepositoryBase && repositoryName ? `/${repositoryName}/` : "/",
+  // Relative assets avoid GitHub Pages blank screens caused by base path mismatches.
+  base: "./",
   plugins: [react()],
   resolve: {
     alias: {
@@ -15,4 +12,3 @@ export default defineConfig({
     }
   }
 });
-

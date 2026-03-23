@@ -30,6 +30,8 @@ VITE_SITE_URL=https://your-domain.example
 
 대부분의 문구와 정보는 [src/data/wedding.ts](/C:/Users/axgatge/Desktop/project1/src/data/wedding.ts) 한 파일에서 수정할 수 있습니다.
 
+웹을 잘 모를 때는 [CUSTOMIZATION_GUIDE.md](/C:/Users/axgatge/Desktop/project1/CUSTOMIZATION_GUIDE.md) 를 먼저 보면 됩니다.
+
 수정 가능한 대표 항목:
 
 - 신랑/신부 이름
@@ -43,4 +45,3 @@ VITE_SITE_URL=https://your-domain.example
 ## 배포
 
 GitHub Actions 기반 GitHub Pages 워크플로를 포함했습니다. 저장소를 GitHub에 올린 뒤 Pages를 `GitHub Actions` 소스로 설정하면 자동 배포할 수 있습니다.
-
