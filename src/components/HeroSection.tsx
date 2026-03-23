@@ -1,30 +1,32 @@
-import { CoupleInfo, EventInfo, HeroInfo } from "@/data/wedding";
+import { CoupleInfo, EventInfo, GalleryImage, HeroInfo } from "@/data/wedding";
 import { formatDateTimeLine, getCountdownDays } from "@/utils/date";
 
 interface HeroSectionProps {
   couple: CoupleInfo;
   hero: HeroInfo;
   event: EventInfo;
+  mainImage?: Pick<GalleryImage, "src" | "alt">;
 }
 
-function HeroSection({ couple, hero, event }: HeroSectionProps) {
+function HeroSection({ couple, hero, event, mainImage }: HeroSectionProps) {
   const dDay = getCountdownDays(event.datetime);
   const dDayLabel = dDay === 0 ? "D-Day" : `D-${Math.abs(dDay)}`;
+  const coverImage = mainImage?.src ?? hero.coverImage;
+  const coverAlt = mainImage?.alt ?? hero.coverAlt;
 
   return (
-    <section className="relative isolate overflow-hidden px-4 pb-6 pt-4 sm:px-6 sm:pt-6">
-      <div className="mx-auto max-w-6xl overflow-hidden rounded-[38px] border border-white/70 shadow-card">
-        <div className="relative min-h-[88vh]">
+    <section className="snap-section snap-section-strong relative isolate min-h-[100svh] overflow-hidden">
+      <div className="relative min-h-[100svh]">
           <img
-            src={hero.coverImage}
-            alt={hero.coverAlt}
-            className="absolute inset-0 h-full w-full object-cover"
+            src={coverImage}
+            alt={coverAlt}
+            className="absolute inset-0 h-full w-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(31,18,13,0.12),rgba(31,18,13,0.6)_56%,rgba(31,18,13,0.82))]" />
           <div className="absolute -left-10 top-20 h-48 w-48 rounded-full bg-white/20 blur-3xl" />
           <div className="absolute -right-8 bottom-16 h-52 w-52 animate-float-slow rounded-full bg-[#f1dccf]/30 blur-3xl" />
 
-          <div className="relative z-10 mx-auto flex min-h-[88vh] max-w-5xl flex-col justify-between px-5 pb-10 pt-6 text-white sm:px-10 sm:pb-14 sm:pt-8">
+          <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-5xl flex-col justify-between px-5 pb-10 pt-6 text-white sm:px-10 sm:pb-14 sm:pt-8">
             <div className="flex flex-wrap items-center justify-between gap-3 text-sm">
               <span className="pill-chip border-white/35 bg-white/10 text-white">
                 Mobile Invitation
@@ -104,7 +106,6 @@ function HeroSection({ couple, hero, event }: HeroSectionProps) {
             </div>
           </div>
         </div>
-      </div>
     </section>
   );
 }

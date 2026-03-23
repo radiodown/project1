@@ -11,6 +11,7 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
   }
 
   body {
@@ -50,6 +51,14 @@
     @apply relative overflow-hidden rounded-[32px] border border-rose-200/70 bg-white/80 shadow-card backdrop-blur;
   }
 
+  .snap-section {
+    scroll-snap-align: start;
+  }
+
+  .snap-section-strong {
+    scroll-snap-stop: always;
+  }
+
   .section-inner {
     @apply px-5 py-8 sm:px-8 sm:py-10;
   }
@@ -76,6 +85,7 @@
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+    scroll-snap-type: none;
   }
 
   *,

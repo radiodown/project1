@@ -13,7 +13,7 @@ function EventInfoSection({ event, venue }: EventInfoSectionProps) {
     dDay === 0 ? "오늘이 바로 예식일입니다." : `예식까지 ${Math.abs(dDay)}일 남았습니다.`;
 
   return (
-    <section id="event" className="section-shell scroll-mt-6">
+    <section id="event" className="section-shell snap-section scroll-mt-6">
       <div className="section-inner space-y-7">
         <SectionHeading
           eyebrow="Event Info"

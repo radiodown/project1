@@ -49,7 +49,7 @@ function GallerySection({ gallery, couple }: GallerySectionProps) {
   const activeImage = currentIndex === null ? null : gallery.images[activeIndex];
 
   return (
-    <section id="gallery" className="section-shell scroll-mt-6">
+    <section id="gallery" className="section-shell snap-section scroll-mt-6">
       <div className="section-inner space-y-7">
         <SectionHeading
           eyebrow="Gallery"

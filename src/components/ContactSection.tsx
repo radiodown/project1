@@ -50,7 +50,7 @@ function ContactSection({ contacts, couple }: ContactSectionProps) {
   };
 
   return (
-    <section id="contact" className="section-shell scroll-mt-6">
+    <section id="contact" className="section-shell snap-section scroll-mt-6">
       <div className="section-inner space-y-7">
         <SectionHeading
           eyebrow="Contact"

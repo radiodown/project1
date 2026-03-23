@@ -8,7 +8,7 @@ interface GreetingSectionProps {
 
 function GreetingSection({ couple, greeting }: GreetingSectionProps) {
   return (
-    <section id="greeting" className="section-shell scroll-mt-6">
+    <section id="greeting" className="section-shell snap-section snap-section-strong scroll-mt-6">
       <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-[#f5e6db] blur-3xl" />
       <div className="section-inner relative">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10">

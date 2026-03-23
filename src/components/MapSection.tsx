@@ -17,7 +17,7 @@ function MapSection({ event, venue }: MapSectionProps) {
   });
 
   return (
-    <section id="map" className="section-shell scroll-mt-6">
+    <section id="map" className="section-shell snap-section scroll-mt-6">
       <div className="section-inner space-y-7">
         <SectionHeading
           eyebrow="Location"
