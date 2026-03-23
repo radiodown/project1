@@ -13,26 +13,31 @@ function App() {
   const heroImage = gallery.images[0];
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-ivory text-ink">
+    <div className="relative min-h-screen overflow-x-hidden bg-[#eadfd6] text-ink sm:px-4 sm:py-6">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.9),_transparent_42%),radial-gradient(circle_at_bottom_right,_rgba(180,138,120,0.16),_transparent_34%)]" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-[linear-gradient(180deg,rgba(244,231,220,0.85),transparent)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(250,246,242,0.2),rgba(196,164,145,0.08))]" />
 
-      <HeroSection couple={couple} hero={hero} event={event} mainImage={heroImage} />
+      <div className="relative z-10 mx-auto min-h-screen w-full max-w-[430px] overflow-hidden bg-ivory sm:min-h-[calc(100svh-3rem)] sm:rounded-[36px] sm:border sm:border-white/75 sm:shadow-[0_30px_90px_-38px_rgba(67,41,26,0.55)]">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.9),_transparent_42%),radial-gradient(circle_at_bottom_right,_rgba(180,138,120,0.16),_transparent_34%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-[linear-gradient(180deg,rgba(244,231,220,0.85),transparent)]" />
 
-      <main className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-5 px-4 pb-20 sm:px-6">
-        <GreetingSection couple={couple} greeting={greeting} />
-        <EventInfoSection event={event} venue={venue} />
-        <MapSection event={event} venue={venue} />
-        <GallerySection gallery={gallery} couple={couple} />
-        <VideoSection videos={videos} />
-        <ContactSection contacts={contacts} couple={couple} />
-      </main>
+        <HeroSection couple={couple} hero={hero} event={event} mainImage={heroImage} />
 
-      <footer className="relative z-10 px-4 pb-10 pt-2 text-center sm:px-6">
-        <div className="mx-auto max-w-3xl rounded-full border border-rose-200/70 bg-white/80 px-5 py-3 text-sm text-rosewood shadow-card backdrop-blur">
-          {footer.note}
-        </div>
-      </footer>
+        <main className="relative z-10 mx-auto flex w-full flex-col gap-5 px-4 pb-20">
+          <GreetingSection couple={couple} greeting={greeting} />
+          <EventInfoSection event={event} venue={venue} />
+          <MapSection event={event} venue={venue} />
+          <GallerySection gallery={gallery} couple={couple} />
+          <VideoSection videos={videos} />
+          <ContactSection contacts={contacts} couple={couple} />
+        </main>
+
+        <footer className="relative z-10 px-4 pb-10 pt-2 text-center">
+          <div className="mx-auto rounded-full border border-rose-200/70 bg-white/80 px-5 py-3 text-sm text-rosewood shadow-card backdrop-blur">
+            {footer.note}
+          </div>
+        </footer>
+      </div>
     </div>
   );
 }
