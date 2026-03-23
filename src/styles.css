@@ -7,6 +7,17 @@
 @layer base {
   :root {
     color-scheme: light;
+    --color-ivory: 251 245 239;
+    --color-sand: 242 230 219;
+    --color-rosewood: 125 91 82;
+    --color-clay: 180 138 120;
+    --color-sage: 127 140 121;
+    --color-ink: 53 38 32;
+    --color-surface: 255 255 255;
+    --color-surface-soft: 255 253 251;
+    --color-surface-tint: 255 248 243;
+    --color-line: 241 226 217;
+    --color-line-strong: 228 205 194;
   }
 
   html {
@@ -18,8 +29,12 @@
     margin: 0;
     min-width: 320px;
     background-image:
-      radial-gradient(circle at top left, rgba(255, 255, 255, 0.78), transparent 38%),
-      linear-gradient(180deg, rgba(245, 233, 223, 0.5), transparent 28%);
+      radial-gradient(
+        circle at top left,
+        rgb(var(--color-surface) / 0.78),
+        transparent 38%
+      ),
+      linear-gradient(180deg, rgb(var(--color-sand) / 0.5), transparent 28%);
   }
 
   body.modal-open {
@@ -41,13 +56,32 @@
   }
 
   ::selection {
-    background: rgba(180, 138, 120, 0.24);
+    background: rgb(var(--color-clay) / 0.24);
   }
 }
 
 @layer components {
+  .page-atmosphere {
+    background-image:
+      radial-gradient(
+        circle at top,
+        rgb(var(--color-surface) / 0.9),
+        transparent 42%
+      ),
+      radial-gradient(
+        circle at bottom right,
+        rgb(var(--color-clay) / 0.16),
+        transparent 34%
+      );
+  }
+
+  .page-top-glow {
+    background-image:
+      linear-gradient(180deg, rgb(var(--color-sand) / 0.85), transparent);
+  }
+
   .section-shell {
-    @apply relative overflow-hidden rounded-[32px] border border-rose-200/70 bg-white/80 shadow-card backdrop-blur;
+    @apply relative overflow-hidden rounded-[32px] border border-line-strong/70 bg-surface/80 shadow-card backdrop-blur;
   }
 
   .section-inner {
@@ -55,11 +89,11 @@
   }
 
   .soft-card {
-    @apply rounded-[28px] border border-rose-100/80 bg-white/90 p-4 shadow-[0_16px_40px_-24px_rgba(67,41,26,0.36)] sm:p-5;
+    @apply rounded-[28px] border border-line/80 bg-surface/90 p-4 shadow-[0_16px_40px_-24px_rgba(67,41,26,0.36)] sm:p-5;
   }
 
   .pill-chip {
-    @apply inline-flex items-center justify-center rounded-full border border-white/80 bg-white/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-rosewood backdrop-blur;
+    @apply inline-flex items-center justify-center rounded-full border border-surface/80 bg-surface/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-rosewood backdrop-blur;
   }
 
   .action-button {
@@ -87,4 +121,3 @@
     scroll-behavior: auto !important;
   }
 }
-

@@ -18,7 +18,7 @@ function VideoSection({ videos }: VideoSectionProps) {
         <div className="grid gap-4 lg:grid-cols-2">
           {videos.items.map((item) => (
             <article key={item.youtubeId} className="soft-card space-y-4">
-              <div className="overflow-hidden rounded-[26px] border border-rose-100 bg-black">
+              <div className="overflow-hidden rounded-[26px] border border-line bg-black">
                 <div className="aspect-video">
                   <iframe
                     src={`https://www.youtube.com/embed/${item.youtubeId}?rel=0`}
@@ -46,4 +46,3 @@ function VideoSection({ videos }: VideoSectionProps) {
 }
 
 export default VideoSection;
-

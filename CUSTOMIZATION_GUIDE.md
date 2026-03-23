@@ -214,7 +214,79 @@ colors: {
 
 저장 후 화면을 새로고침하면 바로 반영됩니다.
 
-## 8. 일부 화면 색만 바꾸고 싶을 때
+## 8. 미리 만들어 둔 컬러 프리셋 비교하기
+
+파일: [src/data/themePresets.ts](/C:/Users/axgatge/Desktop/project1/src/data/themePresets.ts)
+
+여기에는 비교용 컬러 프리셋이 여러 개 들어 있습니다.
+
+- `Warm Ivory`
+- `Blush Bloom`
+- `Sage Ceremony`
+- `Mist Blue`
+
+### 로컬 개발 중 비교하는 방법
+
+```powershell
+$env:PATH = 'C:\Program Files\nodejs;' + $env:PATH
+npm.cmd run dev
+```
+
+개발 서버로 열면 화면 오른쪽 아래에 `컬러 프리셋` 패널이 보입니다.
+
+버튼을 누를 때마다 바로 테마가 바뀝니다.
+
+### 배포된 사이트에서 비교하는 방법
+
+주소 뒤에 아래처럼 붙이면 됩니다.
+
+```text
+?theme-tester=1
+```
+
+예:
+
+```text
+https://내사이트주소/?theme-tester=1
+```
+
+특정 프리셋으로 바로 열고 싶으면:
+
+```text
+https://내사이트주소/?theme-tester=1&theme=blush-bloom
+```
+
+가능한 `theme` 값:
+
+- `warm-ivory`
+- `blush-bloom`
+- `sage-ceremony`
+- `mist-blue`
+
+### 프리셋 자체 색을 바꾸는 방법
+
+[src/data/themePresets.ts](/C:/Users/axgatge/Desktop/project1/src/data/themePresets.ts) 에서 각 프리셋의 색 숫자를 바꾸면 됩니다.
+
+예:
+
+```ts
+colors: {
+  ivory: "255 248 248",
+  sand: "247 231 234",
+  rosewood: "146 95 107",
+  clay: "201 140 154",
+  ...
+}
+```
+
+숫자는 `R G B` 형식입니다.
+
+예를 들어:
+
+- `255 248 248` = 아주 밝은 분홍빛 흰색
+- `146 95 107` = 탁한 로즈 계열
+
+## 9. 일부 화면 색만 바꾸고 싶을 때
 
 조금 더 세부적으로 바꾸려면 아래 파일도 보면 됩니다.
 
@@ -230,7 +302,7 @@ colors: {
 
 처음에는 이 파일은 건드리지 말고, 먼저 `tailwind.config.cjs` 색상만 바꾸는 것을 추천합니다.
 
-## 9. 영상 바꾸는 방법
+## 10. 영상 바꾸는 방법
 
 파일: [src/data/wedding.ts](/C:/Users/axgatge/Desktop/project1/src/data/wedding.ts)
 
@@ -254,7 +326,7 @@ https://www.youtube.com/watch?v=abc123XYZ
 
 라면 넣어야 하는 값은 전체 주소가 아니라 마지막의 `abc123XYZ` 입니다.
 
-## 10. 지도 위치 바꾸는 방법
+## 11. 지도 위치 바꾸는 방법
 
 파일: [src/data/wedding.ts](/C:/Users/axgatge/Desktop/project1/src/data/wedding.ts)
 
@@ -278,7 +350,7 @@ https://www.youtube.com/watch?v=abc123XYZ
 
 단, 정확한 지도 표시를 위해서는 최종적으로 좌표가 필요합니다.
 
-## 11. 연락처와 계좌번호 바꾸는 방법
+## 12. 연락처와 계좌번호 바꾸는 방법
 
 파일: [src/data/wedding.ts](/C:/Users/axgatge/Desktop/project1/src/data/wedding.ts)
 
@@ -307,7 +379,7 @@ accounts: [
 ]
 ```
 
-## 12. 사이트 주소와 공유 링크 바꾸기
+## 13. 사이트 주소와 공유 링크 바꾸기
 
 파일: [.env.example](/C:/Users/axgatge/Desktop/project1/.env.example)
 
@@ -320,7 +392,7 @@ VITE_SITE_URL=https://내-사이트-주소
 
 `VITE_SITE_URL`을 넣으면 공유 버튼이 그 주소를 복사합니다.
 
-## 13. 초보자에게 추천하는 수정 순서
+## 14. 초보자에게 추천하는 수정 순서
 
 1. [src/data/wedding.ts](/C:/Users/axgatge/Desktop/project1/src/data/wedding.ts) 에서 이름, 날짜, 장소, 연락처부터 바꾸기
 2. [public/images/](/C:/Users/axgatge/Desktop/project1/public/images) 에 사진 넣기
@@ -328,16 +400,15 @@ VITE_SITE_URL=https://내-사이트-주소
 4. [tailwind.config.cjs](/C:/Users/axgatge/Desktop/project1/tailwind.config.cjs) 에서 색감 바꾸기
 5. `npm.cmd run dev` 로 확인하기
 
-## 14. 수정하다가 문제가 생기면 먼저 볼 곳
+## 15. 수정하다가 문제가 생기면 먼저 볼 곳
 
 - 사진이 안 보이면: 파일명이 맞는지 확인
 - 날짜가 이상하면: `datetime` 형식 확인
 - 지도가 안 뜨면: `.env`에 `VITE_KAKAO_JAVASCRIPT_KEY` 확인
-- 색이 마음에 안 들면: `tailwind.config.cjs` 수정
+- 색이 마음에 안 들면: `tailwind.config.cjs` 또는 `src/data/themePresets.ts` 수정
 
-## 15. 정말 최소한만 기억하면
+## 16. 정말 최소한만 기억하면
 
 - 내용 바꾸기: [src/data/wedding.ts](/C:/Users/axgatge/Desktop/project1/src/data/wedding.ts)
 - 사진 바꾸기: [public/images/](/C:/Users/axgatge/Desktop/project1/public/images)
 - 색 바꾸기: [tailwind.config.cjs](/C:/Users/axgatge/Desktop/project1/tailwind.config.cjs)
-

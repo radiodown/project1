@@ -64,7 +64,7 @@ function GallerySection({ gallery, couple }: GallerySectionProps) {
               key={image.src}
               type="button"
               onClick={() => setCurrentIndex(index)}
-              className="group mb-4 w-full break-inside-avoid overflow-hidden rounded-[28px] border border-rose-100 bg-white text-left shadow-[0_18px_45px_-28px_rgba(67,41,26,0.38)] transition hover:-translate-y-1"
+              className="group mb-4 w-full break-inside-avoid overflow-hidden rounded-[28px] border border-line bg-surface text-left shadow-[0_18px_45px_-28px_rgba(67,41,26,0.38)] transition hover:-translate-y-1"
             >
               <div
                 className={

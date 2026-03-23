@@ -67,7 +67,7 @@ function EventInfoSection({ event, venue }: EventInfoSectionProps) {
                   href={link.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-full border border-rose-200 bg-[#fff8f3] px-4 py-2 text-sm font-medium text-rosewood transition hover:border-clay hover:text-ink"
+                  className="rounded-full border border-line-strong bg-surface-tint px-4 py-2 text-sm font-medium text-rosewood transition hover:border-clay hover:text-ink"
                 >
                   {link.label}
                 </a>
@@ -75,7 +75,7 @@ function EventInfoSection({ event, venue }: EventInfoSectionProps) {
             </div>
           </article>
 
-          <article className="soft-card bg-gradient-to-br from-[#fffdfb] to-[#f7eee6]">
+          <article className="soft-card bg-gradient-to-br from-surface-soft to-sand/70">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-rosewood/60">
               Quick Guide
             </p>

@@ -21,8 +21,8 @@ function HeroSection({ couple, hero, event }: HeroSectionProps) {
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(31,18,13,0.12),rgba(31,18,13,0.6)_56%,rgba(31,18,13,0.82))]" />
-          <div className="absolute -left-10 top-20 h-48 w-48 rounded-full bg-white/20 blur-3xl" />
-          <div className="absolute -right-8 bottom-16 h-52 w-52 animate-float-slow rounded-full bg-[#f1dccf]/30 blur-3xl" />
+          <div className="absolute -left-10 top-20 h-48 w-48 rounded-full bg-surface/20 blur-3xl" />
+          <div className="absolute -right-8 bottom-16 h-52 w-52 animate-float-slow rounded-full bg-clay/25 blur-3xl" />
 
           <div className="relative z-10 mx-auto flex min-h-[88vh] max-w-5xl flex-col justify-between px-5 pb-10 pt-6 text-white sm:px-10 sm:pb-14 sm:pt-8">
             <div className="flex flex-wrap items-center justify-between gap-3 text-sm">
@@ -64,7 +64,7 @@ function HeroSection({ couple, hero, event }: HeroSectionProps) {
               </div>
 
               <div className="rounded-[30px] border border-white/20 bg-white/12 p-5 backdrop-blur sm:p-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/65">
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/70">
                   Ceremony
                 </p>
                 <p className="mt-3 font-display text-3xl text-white sm:text-4xl">
@@ -78,7 +78,7 @@ function HeroSection({ couple, hero, event }: HeroSectionProps) {
               <div className="flex flex-col gap-3 sm:flex-row">
                 <a
                   href="#event"
-                  className="action-button bg-white text-ink shadow-lg shadow-black/15 hover:bg-[#fff6ef]"
+                  className="action-button bg-surface text-ink shadow-lg shadow-black/15 hover:bg-surface-tint"
                 >
                   예식 정보 보기
                 </a>
@@ -110,4 +110,3 @@ function HeroSection({ couple, hero, event }: HeroSectionProps) {
 }
 
 export default HeroSection;
-

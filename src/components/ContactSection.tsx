@@ -68,7 +68,7 @@ function ContactSection({ contacts, couple }: ContactSectionProps) {
                 <h3 className="mt-3 text-xl font-semibold text-ink">{person.name}</h3>
                 <a
                   href={`tel:${person.phone.replace(/-/g, "")}`}
-                  className="mt-4 inline-flex rounded-full border border-rose-200 bg-[#fff8f3] px-4 py-2 text-sm font-medium text-rosewood transition hover:border-clay hover:text-ink"
+                  className="mt-4 inline-flex rounded-full border border-line-strong bg-surface-tint px-4 py-2 text-sm font-medium text-rosewood transition hover:border-clay hover:text-ink"
                 >
                   {person.phone}
                 </a>
@@ -90,7 +90,7 @@ function ContactSection({ contacts, couple }: ContactSectionProps) {
                 {contacts.accounts.map((account) => (
                   <div
                     key={account.label}
-                    className="rounded-[24px] border border-rose-100 bg-[#fffdfb] p-4"
+                    className="rounded-[24px] border border-line bg-surface-soft p-4"
                   >
                     <p className="text-sm font-semibold text-rosewood">{account.label}</p>
                     <p className="mt-2 text-sm text-ink/80">
@@ -100,7 +100,7 @@ function ContactSection({ contacts, couple }: ContactSectionProps) {
                     <button
                       type="button"
                       onClick={() => handleCopy(account.label, account.number)}
-                      className="mt-3 rounded-full border border-rose-200 px-4 py-2 text-sm font-medium text-rosewood transition hover:border-clay hover:text-ink"
+                      className="mt-3 rounded-full border border-line-strong px-4 py-2 text-sm font-medium text-rosewood transition hover:border-clay hover:text-ink"
                     >
                       {copiedKey === account.label ? "복사 완료" : "계좌번호 복사"}
                     </button>
@@ -109,7 +109,7 @@ function ContactSection({ contacts, couple }: ContactSectionProps) {
               </div>
             </article>
 
-            <article className="soft-card bg-gradient-to-br from-[#fffaf6] to-[#f6ebe4]">
+            <article className="soft-card bg-gradient-to-br from-surface to-sand/70">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-rosewood/60">
                 Share
               </p>
@@ -118,14 +118,14 @@ function ContactSection({ contacts, couple }: ContactSectionProps) {
                 <button
                   type="button"
                   onClick={handleShare}
-                  className="action-button bg-rosewood text-white hover:bg-[#6e4e45]"
+                  className="action-button bg-rosewood text-white hover:bg-rosewood/90"
                 >
                   링크 공유하기
                 </button>
                 <button
                   type="button"
                   onClick={handleCopyLink}
-                  className="action-button border border-rose-200 bg-white text-rosewood hover:border-clay hover:text-ink"
+                  className="action-button border border-line-strong bg-surface text-rosewood hover:border-clay hover:text-ink"
                 >
                   링크 복사
                 </button>

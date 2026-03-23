@@ -4,17 +4,20 @@ import GallerySection from "@/components/GallerySection";
 import GreetingSection from "@/components/GreetingSection";
 import HeroSection from "@/components/HeroSection";
 import MapSection from "@/components/MapSection";
+import ThemeTesterPanel from "@/components/ThemeTesterPanel";
 import VideoSection from "@/components/VideoSection";
 import { weddingData } from "@/data/wedding";
+import { useThemePreset } from "@/hooks/useThemePreset";
 
 function App() {
+  const { activePresetId, presets, setActivePresetId, testerEnabled } = useThemePreset();
   const { couple, hero, greeting, event, venue, gallery, videos, contacts, footer } =
     weddingData;
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-ivory text-ink">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.9),_transparent_42%),radial-gradient(circle_at_bottom_right,_rgba(180,138,120,0.16),_transparent_34%)]" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-[linear-gradient(180deg,rgba(244,231,220,0.85),transparent)]" />
+      <div className="page-atmosphere pointer-events-none absolute inset-0" />
+      <div className="page-top-glow pointer-events-none absolute inset-x-0 top-0 h-96" />
 
       <HeroSection couple={couple} hero={hero} event={event} />
 
@@ -28,13 +31,20 @@ function App() {
       </main>
 
       <footer className="relative z-10 px-4 pb-10 pt-2 text-center sm:px-6">
-        <div className="mx-auto max-w-3xl rounded-full border border-rose-200/70 bg-white/80 px-5 py-3 text-sm text-rosewood shadow-card backdrop-blur">
+        <div className="mx-auto max-w-3xl rounded-full border border-line-strong/70 bg-surface/80 px-5 py-3 text-sm text-rosewood shadow-card backdrop-blur">
           {footer.note}
         </div>
       </footer>
+
+      {testerEnabled ? (
+        <ThemeTesterPanel
+          presets={presets}
+          activePresetId={activePresetId}
+          onSelectPreset={setActivePresetId}
+        />
+      ) : null}
     </div>
   );
 }
 
 export default App;
-

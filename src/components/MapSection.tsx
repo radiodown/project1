@@ -26,11 +26,11 @@ function MapSection({ event, venue }: MapSectionProps) {
         />
 
         <div className="grid gap-4 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="relative overflow-hidden rounded-[30px] border border-rose-100 bg-[#f7efe8]">
-            <div ref={mapRef} className="h-[22rem] w-full bg-[#f4ebe3]" />
+          <div className="relative overflow-hidden rounded-[30px] border border-line bg-sand/60">
+            <div ref={mapRef} className="h-[22rem] w-full bg-sand/50" />
 
             {mapStatus !== "ready" && (
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-[linear-gradient(180deg,rgba(250,245,239,0.85),rgba(247,238,229,0.95))] px-6 text-center">
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-surface/90 px-6 text-center backdrop-blur-sm">
                 <p className="font-display text-3xl text-rosewood">Map Preview</p>
                 <p className="max-w-sm text-sm leading-7 text-rosewood/85">
                   {mapStatus === "disabled"
@@ -66,21 +66,21 @@ function MapSection({ event, venue }: MapSectionProps) {
               <p className="mt-4 text-sm leading-7 text-ink/80">{venue.parking}</p>
             </article>
 
-            <article className="soft-card bg-gradient-to-br from-[#fffefc] to-[#f6ece4]">
+            <article className="soft-card bg-gradient-to-br from-surface-soft to-sand/70">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-rosewood/60">
                 Route Links
               </p>
               <div className="mt-4 flex flex-col gap-2">
                 {venue.links.map((link) => (
                   <a
-                    key={link.label}
-                    href={link.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="rounded-2xl border border-rose-200 bg-white px-4 py-3 text-sm font-medium text-rosewood transition hover:border-clay hover:text-ink"
-                  >
-                    {link.label}
-                  </a>
+                  key={link.label}
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-2xl border border-line-strong bg-surface px-4 py-3 text-sm font-medium text-rosewood transition hover:border-clay hover:text-ink"
+                >
+                  {link.label}
+                </a>
                 ))}
               </div>
             </article>
@@ -92,4 +92,3 @@ function MapSection({ event, venue }: MapSectionProps) {
 }
 
 export default MapSection;
-

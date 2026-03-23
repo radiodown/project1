@@ -4,12 +4,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ivory: "#fbf5ef",
-        sand: "#f2e6db",
-        rosewood: "#7d5b52",
-        clay: "#b48a78",
-        sage: "#7f8c79",
-        ink: "#352620"
+        ivory: "rgb(var(--color-ivory) / <alpha-value>)",
+        sand: "rgb(var(--color-sand) / <alpha-value>)",
+        rosewood: "rgb(var(--color-rosewood) / <alpha-value>)",
+        clay: "rgb(var(--color-clay) / <alpha-value>)",
+        sage: "rgb(var(--color-sage) / <alpha-value>)",
+        ink: "rgb(var(--color-ink) / <alpha-value>)",
+        surface: "rgb(var(--color-surface) / <alpha-value>)",
+        "surface-soft": "rgb(var(--color-surface-soft) / <alpha-value>)",
+        "surface-tint": "rgb(var(--color-surface-tint) / <alpha-value>)",
+        line: "rgb(var(--color-line) / <alpha-value>)",
+        "line-strong": "rgb(var(--color-line-strong) / <alpha-value>)"
       },
       fontFamily: {
         sans: ["'Noto Sans KR'", "system-ui", "sans-serif"],
@@ -36,4 +41,3 @@ module.exports = {
   },
   plugins: []
 };
-

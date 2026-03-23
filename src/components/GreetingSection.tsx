@@ -9,7 +9,7 @@ interface GreetingSectionProps {
 function GreetingSection({ couple, greeting }: GreetingSectionProps) {
   return (
     <section id="greeting" className="section-shell scroll-mt-6">
-      <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-[#f5e6db] blur-3xl" />
+      <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-sand/75 blur-3xl" />
       <div className="section-inner relative">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10">
           <div className="space-y-5">
@@ -18,7 +18,7 @@ function GreetingSection({ couple, greeting }: GreetingSectionProps) {
               title={greeting.title}
               description="가장 가까운 분들께 가장 먼저 전하고 싶은 마음을 짧은 인사말에 담았습니다."
             />
-            <div className="soft-card bg-gradient-to-br from-[#fffaf6] to-[#f6ece4]">
+            <div className="soft-card bg-gradient-to-br from-surface to-sand/70">
               <p className="font-display text-3xl text-rosewood sm:text-4xl">
                 {couple.groomName} &amp; {couple.brideName}
               </p>
@@ -37,7 +37,7 @@ function GreetingSection({ couple, greeting }: GreetingSectionProps) {
                 {paragraph}
               </p>
             ))}
-            <div className="border-t border-rose-100 pt-5">
+            <div className="border-t border-line pt-5">
               <p className="font-medium text-rosewood">{greeting.closing}</p>
             </div>
           </div>
@@ -48,4 +48,3 @@ function GreetingSection({ couple, greeting }: GreetingSectionProps) {
 }
 
 export default GreetingSection;
-
