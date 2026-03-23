@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { CoupleInfo, EventInfo, GalleryImage, HeroInfo } from "@/data/wedding";
 import { formatDateTimeLine, getCountdownDays } from "@/utils/date";
 
@@ -9,13 +10,119 @@ interface HeroSectionProps {
 }
 
 function HeroSection({ couple, hero, event, mainImage }: HeroSectionProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const isPagingRef = useRef(false);
+  const touchStartYRef = useRef<number | null>(null);
+  const touchStartXRef = useRef<number | null>(null);
   const dDay = getCountdownDays(event.datetime);
   const dDayLabel = dDay === 0 ? "D-Day" : `D-${Math.abs(dDay)}`;
   const coverImage = mainImage?.src ?? hero.coverImage;
   const coverAlt = mainImage?.alt ?? hero.coverAlt;
 
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) {
+      return;
+    }
+
+    const releasePaging = () => {
+      window.setTimeout(() => {
+        isPagingRef.current = false;
+      }, 900);
+    };
+
+    const moveToGreeting = () => {
+      if (isPagingRef.current) {
+        return;
+      }
+
+      const greetingSection = document.getElementById("greeting");
+
+      if (!greetingSection) {
+        return;
+      }
+
+      isPagingRef.current = true;
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      greetingSection.scrollIntoView({
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+        block: "start"
+      });
+
+      releasePaging();
+    };
+
+    const handleWheel = (event: WheelEvent) => {
+      if (event.deltaY <= 4 || isPagingRef.current) {
+        return;
+      }
+
+      event.preventDefault();
+      moveToGreeting();
+    };
+
+    const handleTouchStart = (event: TouchEvent) => {
+      const [touch] = event.touches;
+
+      if (!touch) {
+        return;
+      }
+
+      touchStartYRef.current = touch.clientY;
+      touchStartXRef.current = touch.clientX;
+    };
+
+    const handleTouchMove = (event: TouchEvent) => {
+      if (isPagingRef.current || touchStartYRef.current === null || touchStartXRef.current === null) {
+        return;
+      }
+
+      const [touch] = event.touches;
+
+      if (!touch) {
+        return;
+      }
+
+      const deltaY = touchStartYRef.current - touch.clientY;
+      const deltaX = Math.abs(touchStartXRef.current - touch.clientX);
+
+      if (deltaY <= 24 || deltaY <= deltaX) {
+        return;
+      }
+
+      event.preventDefault();
+      moveToGreeting();
+      touchStartYRef.current = null;
+      touchStartXRef.current = null;
+    };
+
+    const resetTouch = () => {
+      touchStartYRef.current = null;
+      touchStartXRef.current = null;
+    };
+
+    section.addEventListener("wheel", handleWheel, { passive: false });
+    section.addEventListener("touchstart", handleTouchStart, { passive: true });
+    section.addEventListener("touchmove", handleTouchMove, { passive: false });
+    section.addEventListener("touchend", resetTouch);
+    section.addEventListener("touchcancel", resetTouch);
+
+    return () => {
+      section.removeEventListener("wheel", handleWheel);
+      section.removeEventListener("touchstart", handleTouchStart);
+      section.removeEventListener("touchmove", handleTouchMove);
+      section.removeEventListener("touchend", resetTouch);
+      section.removeEventListener("touchcancel", resetTouch);
+    };
+  }, []);
+
   return (
-    <section className="snap-section snap-section-strong relative isolate min-h-[100svh] overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="snap-section snap-section-strong relative isolate min-h-[100svh] overflow-hidden"
+    >
       <div className="relative min-h-[100svh]">
           <img
             src={coverImage}
